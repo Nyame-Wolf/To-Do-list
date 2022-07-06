@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.width {
+  margin: 1em;
+  border: 1px solid #d3d3d3;
+  width: 90%;
+}
+
+.title,
+.desc {
+  width: 100%;
+  padding: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.clear {
+  background: #d3d3d3;
+  width: 100%;
+  padding: 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 1em;
+}
+
+.reload {
+  padding-right: 0.2em;
+}
+
+.desc {
+  padding-bottom: 1em;
+}
