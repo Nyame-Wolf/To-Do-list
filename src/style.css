@@ -41,8 +41,12 @@ li {
   gap: 1em;
   border-bottom: 1px solid #d3d3d3;
   padding-bottom: 1em;
+  position: relative;
 }
-
+.btn-remove {
+  position: absolute;
+  right: 0;
+}
 .reload {
   padding-right: 0.2em;
 }
