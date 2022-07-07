@@ -1,15 +1,16 @@
 import './style.css';
 
-import { todos, createToDo, addToDo } from './functionality/addRemoveEdit.js';
+import { getToDos, createToDo, addToDo } from './modules/addRemoveEdit.js';
 
 const input = document.querySelector('.desc');
 
-todos.forEach(createToDo);
+getToDos().forEach(createToDo);
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const completed = false;
     const description = document.querySelector('.desc').value;
-    const newTodo = createToDo({ description, completed });
+    const index = getToDos().length + 1;
+    const newTodo = createToDo({ description, completed, index });
     addToDo(newTodo);
     input.value = '';
   }
