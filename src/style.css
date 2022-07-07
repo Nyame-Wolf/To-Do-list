@@ -41,6 +41,12 @@ li {
   gap: 1em;
   border-bottom: 1px solid #d3d3d3;
   padding-bottom: 1em;
+  position: relative;
+}
+
+.btn-remove {
+  position: absolute;
+  right: 0;
 }
 
 .reload {
@@ -49,4 +55,8 @@ li {
 
 .desc {
   padding-bottom: 1em;
+}
+
+.content {
+  cursor: text;
 }
