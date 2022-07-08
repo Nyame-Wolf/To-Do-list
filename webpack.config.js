@@ -18,6 +18,7 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/To-Do-list",
     clean: true,
   },
 
