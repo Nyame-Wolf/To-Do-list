@@ -1,3 +1,5 @@
+import trash from "../assets/icons8-waste-24.png";
+
 const ul = document.querySelector(".list-items");
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 export const getToDos = () => todos;
@@ -32,9 +34,10 @@ export const createToDo = ({ description, completed, index }) => {
   item.classList.add("content");
   item.appendChild(document.createTextNode(description));
   item.contentEditable = true;
-  const removeBtn = document.createElement("button");
+  const removeBtn = document.createElement("input");
+  removeBtn.setAttribute("type", "image");
+  removeBtn.setAttribute("src", trash);
   removeBtn.classList.add("btn-remove");
-  removeBtn.innerHTML = "&#x3A7";
   li.append(checkbox, item, removeBtn);
 
   ul.appendChild(li);
