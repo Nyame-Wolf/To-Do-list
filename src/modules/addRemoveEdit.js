@@ -38,9 +38,7 @@ export const createToDo = ({ description, completed, index }) => {
   li.append(checkbox, item, removeBtn);
 
   ul.appendChild(li);
-  checkbox.addEventListener("change", (e) => {
-    console.log(e.target.checked, checkbox.checked);
-
+  checkbox.addEventListener("change", () => {
     const todo = todos.find((todo) => todo.index === index);
 
     if (checkbox.checked) {
