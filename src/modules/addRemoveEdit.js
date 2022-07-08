@@ -1,9 +1,9 @@
-const ul = document.querySelector('.list-items');
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
+const ul = document.querySelector(".list-items");
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 export const getToDos = () => todos;
 export const setToDos = (newTodos) => {
   todos = newTodos;
-}
+};
 
 export const addToDo = (todo) => {
   const x = {
@@ -12,7 +12,7 @@ export const addToDo = (todo) => {
     index: todo.index,
   };
   todos.push(x);
-  localStorage.setItem('todos', JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
   return x;
 };
 
@@ -23,44 +23,43 @@ export const removeTodos = (predicate, todos) =>
   });
 
 export const createToDo = ({ description, completed, index }) => {
-  const li = document.createElement('li');
-  const checkbox = document.createElement('INPUT');
-  checkbox.classList.add('check');
-  checkbox.setAttribute('type', 'checkbox');
+  const li = document.createElement("li");
+  const checkbox = document.createElement("INPUT");
+  checkbox.classList.add("check");
+  checkbox.setAttribute("type", "checkbox");
   checkbox.checked = completed;
-  const item = document.createElement('span');
-  item.classList.add('content');
+  const item = document.createElement("span");
+  item.classList.add("content");
   item.appendChild(document.createTextNode(description));
   item.contentEditable = true;
-  const removeBtn = document.createElement('button');
-  removeBtn.classList.add('btn-remove');
-  removeBtn.innerHTML = '&#x3A7';
+  const removeBtn = document.createElement("button");
+  removeBtn.classList.add("btn-remove");
+  removeBtn.innerHTML = "&#x3A7";
   li.append(checkbox, item, removeBtn);
 
   ul.appendChild(li);
-  checkbox.addEventListener('change', (e) => {
+  checkbox.addEventListener("change", (e) => {
     console.log(e.target.checked, checkbox.checked);
 
     const todo = todos.find((todo) => todo.index === index);
 
-    if (checkbox.checked) { todo.completed = true; }
-    else
-    {
+    if (checkbox.checked) {
+      todo.completed = true;
+    } else {
       todo.completed = false;
     }
-    // todo.completed 
-    localStorage.setItem('todos', JSON.stringify(todos));
+    // todo.completed
+    localStorage.setItem("todos", JSON.stringify(todos));
   });
-  item.addEventListener('input', (e) => {
-    console.log(e.target)
+  item.addEventListener("input", (e) => {
     const todo = todos.find((todo) => todo.index === index);
     todo.description = e.target.outerText;
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   });
-  removeBtn.addEventListener('click', (e) => {
+  removeBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const newTodos = removeTodos((todo) => todo.index !== index, todos)
-    localStorage.setItem('todos', JSON.stringify(newTodos));
+    const newTodos = removeTodos((todo) => todo.index !== index, todos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     setToDos(newTodos);
     // eslint-disable-next-line no-use-before-define
     refreshToDos();
@@ -70,8 +69,7 @@ export const createToDo = ({ description, completed, index }) => {
 
 export const refreshToDos = () => {
   let child = ul.lastElementChild;
-  while (child)
-  {
+  while (child) {
     ul.removeChild(child);
     child = ul.lastElementChild;
   }
