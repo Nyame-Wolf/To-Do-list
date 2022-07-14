@@ -1,20 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .width {
   margin: 1em;
   border: 1px solid #d3d3d3;
   width: 90%;
-}
-
-.title,
-.desc {
-  width: 100%;
-  padding: 0;
 }
 
 .title {
@@ -24,6 +25,7 @@ body {
 .heading {
   display: flex;
   justify-content: space-between;
+  padding: 0.8em;
 }
 
 .clear {
@@ -61,7 +63,8 @@ li > * {
 }
 
 .desc {
-  padding-bottom: 1.8em;
+  padding: 1.5em;
+  width: 100%;
   border: none;
   background: #dcdcdc;
 }
