@@ -16,6 +16,11 @@
 
 [Live Demo Link](https://nyame-wolf.github.io/To-Do-list/)
 
+## Project Milestones
+- **Milestone 0 - project setup (0.5h)** ✅
+- **Milestone 1 - Add - Remove functions (1h)** ✅
+- **Milestone 2 - Dynamic content (5h)** ✅
+
 ## Authors
 
 👤 **Author1**
