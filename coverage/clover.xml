@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657907391315" clover="3.2.0">
-  <project timestamp="1657907391315" name="All files">
-    <metrics statements="53" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="2" elements="70" coveredelements="16" complexity="0" loc="53" ncloc="53" packages="1" files="1" classes="1"/>
-    <file name="addRemoveEdit.js" path="/Users/nyame/microverse/Course Work/Module2/week3/To-Do-list/src/modules/addRemoveEdit.js">
-      <metrics statements="53" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="2"/>
+<coverage generated="1657916493555" clover="3.2.0">
+  <project timestamp="1657916493556" name="All files">
+    <metrics statements="54" coveredstatements="16" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="5" elements="71" coveredelements="23" complexity="0" loc="54" ncloc="54" packages="1" files="1" classes="1"/>
+    <file name="addRemoveEdit.js" path="/home/wayungi/Public/Microverse/external repos/To-Do-list/src/modules/addRemoveEdit.js">
+      <metrics statements="54" coveredstatements="16" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="5"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="cond" truecount="2" falsecount="0"/>
-      <line num="5" count="2" type="stmt"/>
+      <line num="5" count="9" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="7" count="0" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
       <line num="10" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="16" count="1" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
+      <line num="11" count="4" type="stmt"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="18" count="4" type="stmt"/>
       <line num="21" count="1" type="stmt"/>
-      <line num="22" count="0" type="stmt"/>
-      <line num="23" count="0" type="stmt"/>
-      <line num="24" count="0" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="3" type="stmt"/>
+      <line num="24" count="3" type="stmt"/>
       <line num="27" count="1" type="stmt"/>
       <line num="28" count="0" type="stmt"/>
       <line num="29" count="0" type="stmt"/>
@@ -49,14 +49,15 @@
       <line num="62" count="0" type="stmt"/>
       <line num="63" count="0" type="stmt"/>
       <line num="64" count="0" type="stmt"/>
-      <line num="66" count="0" type="stmt"/>
-      <line num="68" count="0" type="stmt"/>
-      <line num="71" count="1" type="stmt"/>
-      <line num="72" count="0" type="stmt"/>
+      <line num="65" count="0" type="stmt"/>
+      <line num="67" count="0" type="stmt"/>
+      <line num="69" count="0" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
       <line num="73" count="0" type="stmt"/>
       <line num="74" count="0" type="stmt"/>
       <line num="75" count="0" type="stmt"/>
-      <line num="77" count="0" type="stmt"/>
+      <line num="76" count="0" type="stmt"/>
+      <line num="78" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
