@@ -24,6 +24,11 @@ export const removeTodos = (predicate, todos) =>
     return todo;
   });
 
+export const toggleStatus = (todo, status) => {
+  todo.completed = status;
+  return todo;
+};
+
 export const createToDo = ({ description, completed, index }) => {
   const li = document.createElement("li");
   const checkbox = document.createElement("INPUT");
@@ -45,9 +50,9 @@ export const createToDo = ({ description, completed, index }) => {
     const todo = todos.find((todo) => todo.index === index);
 
     if (checkbox.checked) {
-      todo.completed = true;
+      toggleStatus(todo, true);
     } else {
-      todo.completed = false;
+      toggleStatus(todo, false);
     }
     // todo.completed
     localStorage.setItem("todos", JSON.stringify(todos));

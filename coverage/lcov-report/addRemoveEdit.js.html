@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.31% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/58</span>
+                <span class='fraction'>20/60</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.46% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/13</span>
+                <span class='fraction'>6/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.62% </span>
+                <span class="strong">33.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/54</span>
+                <span class='fraction'>19/56</span>
             </div>
         
             
@@ -142,13 +142,17 @@
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -163,12 +167,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -201,7 +210,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -247,6 +255,11 @@ export const removeTodos = (predicate, todos) =&gt;
     return todo;
   });
 &nbsp;
+export const toggleStatus = (todo, status) =&gt; {
+  todo.completed = status;
+  return todo;
+};
+&nbsp;
 export const createToDo = <span class="fstat-no" title="function not covered" >({</span> description, completed, index }) =&gt; {
   const li = <span class="cstat-no" title="statement not covered" >document.createElement("li");</span>
   const checkbox = <span class="cstat-no" title="statement not covered" >document.createElement("INPUT");</span>
@@ -268,9 +281,9 @@ export const createToDo = <span class="fstat-no" title="function not covered" >(
     const todo = <span class="cstat-no" title="statement not covered" >todos.find(<span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; <span class="cstat-no" title="statement not covered" >todo.index === index)</span>;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (checkbox.checked) {</span>
-<span class="cstat-no" title="statement not covered" >      todo.completed = true;</span>
+<span class="cstat-no" title="statement not covered" >      toggleStatus(todo, true);</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      todo.completed = false;</span>
+<span class="cstat-no" title="statement not covered" >      toggleStatus(todo, false);</span>
     }
     // todo.completed
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem("todos", JSON.stringify(todos));</span>
@@ -283,7 +296,6 @@ export const createToDo = <span class="fstat-no" title="function not covered" >(
 <span class="cstat-no" title="statement not covered" >  removeBtn.addEventListener("click", <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
     const newTodos = <span class="cstat-no" title="statement not covered" >removeTodos(<span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; <span class="cstat-no" title="statement not covered" >todo.index !== index,</span> todos);</span>
-<span class="cstat-no" title="statement not covered" >    console.log(newTodos);</span>
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem("todos", JSON.stringify(newTodos));</span>
 <span class="cstat-no" title="statement not covered" >    setToDos(newTodos);</span>
     // eslint-disable-next-line no-use-before-define
@@ -307,7 +319,7 @@ export const refreshToDos = <span class="fstat-no" title="function not covered" 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-07-15T20:21:33.543Z
+                at 2022-07-15T22:23:23.532Z
             </div>
         <script src="prettify.js"></script>
         <script>

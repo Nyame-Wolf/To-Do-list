@@ -7,32 +7,30 @@ import {
   getToDos,
   removeTodos,
   setToDos,
-  refreshToDos,
-} from '../modules/addRemoveEdit.js';
+  toggleStatus,
+} from "../modules/addRemoveEdit.js";
 
-describe('Test todo app', () => {
+describe("Test todo app", () => {
   const task1 = {
-    description: 'Play soccer',
+    description: "Play soccer",
     completed: false,
     index: 1,
   };
 
-  console.log(task1.index);
-
   const task2 = {
-    description: 'Eat food',
+    description: "Eat food",
     completed: false,
     index: 2,
   };
 
   const task3 = {
-    description: 'Take a nap',
+    description: "Take a nap",
     completed: false,
     index: 3,
   };
 
   const task4 = {
-    description: 'pair program',
+    description: "pair program",
     completed: false,
     index: 4,
   };
@@ -59,8 +57,8 @@ describe('Test todo app', () => {
   <button class="clear">Clear all completed</button>
 </div>`;
 
-  describe('add todo', () => {
-    test('should add task 1 to array', () => {
+  describe("add todo", () => {
+    test("should add task 1 to array", () => {
       // act
       addToDo(task1);
       // assert
@@ -69,8 +67,8 @@ describe('Test todo app', () => {
     });
   });
 
-  describe('remove todo', () => {
-    test('Should remove tasks from array', () => {
+  describe("remove todo", () => {
+    test("Should remove tasks from array", () => {
       // act
       addToDo(task2);
       addToDo(task3);
@@ -104,5 +102,20 @@ describe('Test todo app', () => {
   //     expect();
   //   });
   // });
+  describe("Toggle completed status on checkbox click", () => {
+    test("should return task 1 status as true", () => {
+      const task1Status = toggleStatus(task1, true);
+      getToDos()[0] = task1Status;
+      expect(task1Status.completed).toEqual(true);
+    });
+  });
+  describe("Clear all completed", () => {
+    test("should remove all compled todos", () => {
+      const newTodos = removeTodos((task) => !task.completed, getToDos());
+      setToDos(newTodos);
 
+      expect(getToDos().length).toEqual(2);
+      expect(getToDos()).not.toContain(task1);
+    });
+  });
 });
