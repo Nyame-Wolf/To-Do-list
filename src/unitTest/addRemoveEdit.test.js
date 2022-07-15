@@ -50,6 +50,15 @@ describe('Test todo app', () => {
   //     index: "6",
   //   };
 
+  document.body.innerHTML = `<div class="width">
+  <div class="heading">
+    <h1 class="title">Today's To Do</h1>
+  </div>
+  <input type="text" class="desc" placeholder="Add to your list..." />
+  <ul class="list-items"><li><input class="check" type="checkbox"><span class="content" contenteditable="true">item1</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li><li><input class="check" type="checkbox"><span class="content" contenteditable="true">task2</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li><li><input class="check" type="checkbox"><span class="content" contenteditable="true">task3</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li></ul>
+  <button class="clear">Clear all completed</button>
+</div>`;
+
   describe('add todo', () => {
     test('should add task 1 to array', () => {
       // act
@@ -78,4 +87,22 @@ describe('Test todo app', () => {
       expect(getToDos()).not.toContain(task2);
     });
   });
+
+  // describe('Edit task method', () => {
+  //   test('Should change description from item1 to task1', () => {
+  //     const item1 = document.querySelectorAll('.content')[0];
+  //     item1.addEventListener('input', (e) => {
+  //       const todo = getToDos().find(
+  //         (todo) => todo.index === getToDos()[1].index
+  //       );
+  //       todo.description = e.target.outerText;
+  //     });
+
+  //     item1.dispatchEvent(new Event('input', {bubbles:true}));
+
+  //     //assert
+  //     expect();
+  //   });
+  // });
+
 });

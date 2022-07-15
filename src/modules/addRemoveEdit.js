@@ -60,7 +60,6 @@ export const createToDo = ({ description, completed, index }) => {
   removeBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const newTodos = removeTodos((todo) => todo.index !== index, todos);
-    console.log(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
     setToDos(newTodos);
     // eslint-disable-next-line no-use-before-define
