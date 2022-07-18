@@ -1,15 +1,8 @@
-/**
- * @jest-environment jsdom
- */
+import { getToDos, createToDo } from "../modules/addRemoveEdit.js";
 
-import {
-  addToDo,
-  getToDos,
-  removeTodos,
-  setToDos,
-  toggleStatus,
-} from "../modules/addRemoveEdit.js";
+import clearAllItems from "../modules/interactive.js";
 
+jest.mock("../modules/localStorage");
 describe("Test todo app", () => {
   const task1 = {
     description: "Play soccer",
@@ -35,6 +28,8 @@ describe("Test todo app", () => {
     index: 4,
   };
 
+  const wait = (ms) => new Promise((res) => setTimeout(res, ms));
+
   //   const task5 = {
   //     description: "Drink water",
   //     completed: false,
@@ -48,19 +43,10 @@ describe("Test todo app", () => {
   //     index: "6",
   //   };
 
-  document.body.innerHTML = `<div class="width">
-  <div class="heading">
-    <h1 class="title">Today's To Do</h1>
-  </div>
-  <input type="text" class="desc" placeholder="Add to your list..." />
-  <ul class="list-items"><li><input class="check" type="checkbox"><span class="content" contenteditable="true">item1</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li><li><input class="check" type="checkbox"><span class="content" contenteditable="true">task2</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li><li><input class="check" type="checkbox"><span class="content" contenteditable="true">task3</span><input type="image" src="/To-Do-listd0a5665c65464d8cf82e.png" class="btn-remove"></li></ul>
-  <button class="clear">Clear all completed</button>
-</div>`;
-
   describe("add todo", () => {
-    test("should add task 1 to array", () => {
+    test("should add task 1", () => {
       // act
-      addToDo(task1);
+      createToDo(task1);
       // assert
       expect(getToDos().length).toEqual(1);
       expect(getToDos()[0]).toEqual(task1);
@@ -68,17 +54,21 @@ describe("Test todo app", () => {
   });
 
   describe("remove todo", () => {
-    test("Should remove tasks from array", () => {
+    test("Should remove tasks from array", async () => {
       // act
-      addToDo(task2);
-      addToDo(task3);
-      addToDo(task4);
-
-      const newTodos = removeTodos(
-        (task2) => task2.index !== getToDos()[1].index,
-        getToDos()
+      createToDo(task2);
+      createToDo(task3);
+      createToDo(task4);
+      const remove2nd = document.querySelectorAll(".btn-remove")[1];
+      remove2nd.dispatchEvent(
+        new MouseEvent("click", {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+        })
       );
-      setToDos(newTodos);
+
+      await wait(300);
 
       // assert
       expect(getToDos().length).toEqual(3);
@@ -86,34 +76,42 @@ describe("Test todo app", () => {
     });
   });
 
-  // describe('Edit task method', () => {
-  //   test('Should change description from item1 to task1', () => {
-  //     const item1 = document.querySelectorAll('.content')[0];
-  //     item1.addEventListener('input', (e) => {
-  //       const todo = getToDos().find(
-  //         (todo) => todo.index === getToDos()[1].index
-  //       );
-  //       todo.description = e.target.outerText;
-  //     });
-
-  //     item1.dispatchEvent(new Event('input', {bubbles:true}));
-
-  //     //assert
-  //     expect();
-  //   });
-  // });
+  describe("Edit task method", () => {
+    test("Should change description from item1 to task1", async () => {
+      const item1 = document.querySelectorAll(".content")[0];
+      item1.innerHTML = "task1";
+      item1.dispatchEvent(
+        new InputEvent("input", {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+      await wait(300);
+      // assert
+      expect(getToDos()[0].description).toBe("task1");
+    });
+  });
   describe("Toggle completed status on checkbox click", () => {
-    test("should return task 1 status as true", () => {
-      const task1Status = toggleStatus(task1, true);
-      getToDos()[0] = task1Status;
-      expect(task1Status.completed).toEqual(true);
+    test("should return task 1 status as true", async () => {
+      const input = document.querySelectorAll("input[type=checkbox]")[0];
+
+      input.dispatchEvent(
+        new MouseEvent("click", {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+
+      await wait(300);
+
+      expect(getToDos()[0].completed).toEqual(true);
     });
   });
   describe("Clear all completed", () => {
-    test("should remove all compled todos", () => {
-      const newTodos = removeTodos((task) => !task.completed, getToDos());
-      setToDos(newTodos);
-
+    test("should remove all completed todos", () => {
+      clearAllItems();
       expect(getToDos().length).toEqual(2);
       expect(getToDos()).not.toContain(task1);
     });
