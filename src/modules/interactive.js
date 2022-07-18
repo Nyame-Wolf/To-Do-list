@@ -1,16 +1,18 @@
 import {
   getToDos,
   setToDos,
-  refreshToDos,
+  populateTodos,
   removeTodos,
 } from "./addRemoveEdit.js";
+
+import * as localStorage from "./localStorage.js";
 
 const clearAllItems = () => {
   const todos = getToDos();
   const newToDos = removeTodos((todo) => !todo.completed, todos);
   localStorage.setItem("todos", JSON.stringify(newToDos));
   setToDos(newToDos);
-  refreshToDos();
+  populateTodos();
 };
 
 export default clearAllItems;
