@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://nyame-wolf.github.io/To-Do-list/)
+to be deployed soon
 
 ## Project Milestones
 - **Milestone 0 - project setup (0.5h)** ✅
