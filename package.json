@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
-    "build": "webpack",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
