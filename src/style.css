@@ -93,6 +93,15 @@ li > * {
   color: #fff;
 }
 
-input[type='checkbox']:checked + .content {
+.container input[type='checkbox']:checked + .content  {
   text-decoration: line-through;
+}
+.container{
+  display: flex;
+  align-items: center;
+}
+.check{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
