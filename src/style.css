@@ -10,16 +10,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #191970;
+  background-blend-mode: color-dodge;
+  background-image: url(./assets/brick-wall.png);
+  background-size: cover;
 }
 
 .width {
+  background: #997e03;
   margin: 1em;
   border: 1px solid #d3d3d3;
-  width: 90%;
+  width: 500px;
+  min-width: 375px;
+  border-radius: 10px;
 }
 
 .title {
   margin: 0;
+  text-shadow: 0 0 5px #fff;
+  color: #fff;
 }
 
 .heading {
@@ -29,9 +38,16 @@ body {
 }
 
 .clear {
-  background: #d3d3d3;
   width: 100%;
-  padding: 1em;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  padding: 15px;
+  color: white;
+  font-family: 'Rubik Moonrocks', sans-serif;
+  font-size: 1.5em;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(153, 126, 3, 1) 100%);
 }
 
 ul {
@@ -67,8 +83,16 @@ li > * {
   width: 100%;
   border: none;
   background: #dcdcdc;
+  border-right: none;
+  border-left: none;
 }
 
 .content {
   cursor: text;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+input[type='checkbox']:checked + .text {
+  text-decoration: line-through;
 }
