@@ -6,7 +6,8 @@ import {
   createToDo,
   populateTodos,
 } from "./modules/addRemoveEdit.js";
-import clearAllItems from "./modules/interactive.js";
+import clearAllCompleted from "./modules/interactive.js";
+import clearAll from "./modules/clearAll.js";
 
 const headDiv = document.querySelector(".heading");
 const clearCompleted = document.querySelector(".clear");
@@ -30,4 +31,5 @@ input.addEventListener("keypress", (e) => {
   }
 });
 
-clearCompleted.addEventListener("click", clearAllItems);
+clearCompleted.addEventListener("click", clearAllCompleted);
+refreshB.addEventListener("click", clearAll);

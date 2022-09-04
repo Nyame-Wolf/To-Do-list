@@ -7,7 +7,7 @@ import {
 
 import * as localStorage from "./localStorage.js";
 
-const clearAllItems = () => {
+const clearAllICompleted = () => {
   const todos = getToDos();
   const newToDos = removeTodos((todo) => !todo.completed, todos);
   localStorage.setItem("todos", JSON.stringify(newToDos));
@@ -15,4 +15,4 @@ const clearAllItems = () => {
   populateTodos();
 };
 
-export default clearAllItems;
+export default clearAllICompleted;
