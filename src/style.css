@@ -93,7 +93,7 @@ li > * {
   color: #fff;
 }
 
-.container input[type='checkbox']:checked + .content  {
+ input[type='checkbox']:checked + .content  {
   text-decoration: line-through;
 }
 .container{

@@ -27,6 +27,7 @@ export const toggleStatus = (todo, status) => {
 
 export const createToDo = ({ description, completed, index }) => {
   const li = document.createElement("li");
+  li.classList.add("container");
   const checkbox = document.createElement("INPUT");
   checkbox.classList.add("check");
   checkbox.setAttribute("type", "checkbox");
